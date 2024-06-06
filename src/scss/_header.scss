@@ -1,0 +1,116 @@
+@use "variables" as *;
+@use "skin" as *;
+@use "footer" as *;
+
+.header {
+  max-width: 1500px;
+  margin: 0 auto;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em 5em 1.5em 5em;
+    //border-bottom: 1px solid $dark-grey-color;
+    &__nav-list {
+      display: flex;
+      gap: 3em;
+    }
+
+    &__info {
+      display: flex;
+      gap: 1em;
+
+      &-basket,
+      &-search {
+        width: $font-size;
+        height: $font-size;
+      }
+    }
+  }
+
+  &__title {
+  }
+
+  &__subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2em;
+
+    &-text {
+      font: 3.2em Playfair Display, serif;
+      font-weight: 500;
+      line-height: calc($header-nav-item-line-height * 3.2);
+    }
+
+    &-description {
+      text-align: center;
+      max-width: calc($max-width * 6);
+      line-height: $header-nav-item-line-height;
+      margin: 1em 0 1em 0;
+    }
+
+    &-button {
+      display: flex;
+      align-items: center;
+      font-family: Playfair Display SC;
+      font-size: calc($font-size - 0.4em);
+      line-height: 1.3em;
+      text-align: left;
+      padding: 0.8em 1.5em 0.8em 1.5em;
+      margin-bottom: 4em;
+      color: $white-color;
+      background: $header-color;
+      border-radius: 0 1.5em 0 1.5em;
+      transition: 0.4s all;
+
+      &-arrow {
+        width: calc($font-size + 0.4em);
+        height: calc($font-size + 0.4em);
+        margin-left: 0.5em;
+        transition: 0.4s all;
+      }
+
+      &:hover {
+        //font-size: calc($font-size - 0.37em);
+        background: $white-color;
+        color: $header-color;
+
+        .header__subtitle-button-arrow {
+          filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+        }
+      }
+    }
+  }
+  &__collage{
+    display: flex;
+    justify-content: center;
+    gap: 1.1em;
+    margin-bottom: 4em;
+  }
+  &__end-of-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:3em;
+
+    &-1, &-2, &-3{
+      position: absolute;
+      height: 1px;
+      width: 1100px;
+      background: $grey-color;
+      margin-bottom:3em;
+    }
+    &-2{
+      width: 1000px;
+      background: $dark-grey-color;
+    }
+    &-3{
+      width: 600px;
+      height: 1.2px;
+      background: $dark-grey-color;
+    }
+  }
+}
