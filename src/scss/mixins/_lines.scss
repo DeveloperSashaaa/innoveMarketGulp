@@ -1,0 +1,26 @@
+@use '../variables' as *;
+@use '../skin' as *;
+.end-of-block-base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.end-of-block-item {
+  position: absolute;
+  height: 1px;
+  background: $grey-color;
+  margin-bottom: 3em;
+}
+
+.end-of-block-2 {
+  min-width: calc($max-width * 10);
+  background: $dark-grey-color;
+}
+
+.end-of-block-3 {
+  min-width: calc($max-width * 6);
+  height: 1.5px;
+  background: $dark-grey-color;
+}

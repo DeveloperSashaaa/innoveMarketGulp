@@ -1,7 +1,7 @@
 @use "variables" as *;
 @use "skin" as *;
 @use "footer" as *;
-
+@use "../scss/mixins/_lines" as *;
 .header {
   max-width: 1500px;
   margin: 0 auto;
@@ -11,12 +11,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5em 5em 1.5em 5em;
-    //border-bottom: 1px solid $dark-grey-color;
     &__nav-list {
       display: flex;
       gap: 3em;
     }
-
     &__info {
       display: flex;
       gap: 1em;
@@ -29,9 +27,6 @@
     }
   }
 
-  &__title {
-  }
-
   &__subtitle {
     display: flex;
     align-items: center;
@@ -42,20 +37,20 @@
     &-text {
       font: 3.2em Playfair Display, serif;
       font-weight: 500;
-      line-height: calc($header-nav-item-line-height * 3.2);
+      line-height: calc($line-height * 3.2);
     }
 
     &-description {
       text-align: center;
       max-width: calc($max-width * 6);
-      line-height: $header-nav-item-line-height;
+      line-height: $line-height;
       margin: 1em 0 1em 0;
     }
 
     &-button {
       display: flex;
       align-items: center;
-      font-family: Playfair Display SC;
+      font-family: Playfair Display SC,serif;
       font-size: calc($font-size - 0.4em);
       line-height: 1.3em;
       text-align: left;
@@ -74,7 +69,6 @@
       }
 
       &:hover {
-        //font-size: calc($font-size - 0.37em);
         background: $white-color;
         color: $header-color;
 
@@ -84,33 +78,27 @@
       }
     }
   }
+
   &__collage{
     display: flex;
     justify-content: center;
-    gap: 1.1em;
+    gap: 1.35em;
+    flex-wrap: wrap;
     margin-bottom: 4em;
   }
-  &__end-of-block{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom:3em;
+  &__end-of-block {
+    @extend .end-of-block-base;
 
-    &-1, &-2, &-3{
-      position: absolute;
-      height: 1px;
-      width: 1100px;
-      background: $grey-color;
-      margin-bottom:3em;
+    &-1, &-2, &-3 {
+      @extend .end-of-block-item;
     }
-    &-2{
-      width: 1000px;
-      background: $dark-grey-color;
+
+    &-2 {
+      @extend .end-of-block-2;
     }
-    &-3{
-      width: 600px;
-      height: 1.2px;
-      background: $dark-grey-color;
+
+    &-3 {
+      @extend .end-of-block-3;
     }
   }
 }

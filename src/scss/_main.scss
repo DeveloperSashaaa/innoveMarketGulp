@@ -1,76 +1,219 @@
 @use './variables' as *;
 @use './skin' as *;
-.main{
-  max-width: 1500px;
+@use './header' as *;
+@import './mixins/lines';
+
+.main {
+  max-width: 1300px;
   margin: 0 auto;
-  &__production{
-    &__title{
+
+  &__production {
+    &__title {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      &-text{
+
+      &-text {
         font-family: Inter, sans-serif;
         font-size: $font-size;
-        color:$dark-grey-color;
+        color: $dark-grey-color;
         opacity: 0.5;
       }
-      &-description{
-        font-family: Playfair Display;
+
+      &-description {
+        font-family: Playfair Display, serif;
         font-size: calc($font-size + 1em);
-        color:$dark-grey-color;
+        color: $dark-grey-color;
         margin-bottom: 2em;
         font-weight: 400;
       }
     }
-    &__cards{
+
+    &__cards {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: row;
-      &-choice{
+
+      &-choice {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         border-radius: 2em;
         background: $white-grey-color;
-        font: 1.2em Inter, sans-serif;
+        font: $font-size Inter, sans-serif;
         max-width: calc($max-width * 10);
         margin-bottom: 2em;
         z-index: 9;
       }
     }
-    &__card-choice{
+
+    &__card-choice {
       display: flex;
       opacity: 0.7;
       margin: 0.8em 2em;
-      line-height: $header-nav-item-line-height;
+      line-height: $line-height;
       transition: all 0.2s ease-in-out;
       cursor: pointer;
 
       &.active {
         padding: 0.5em 1.7em;
-        margin:0.3em;
+        margin: 0.3em;
         background: $white-color;
         border-radius: 2em;
-        line-height: $header-nav-item-line-height;
+        line-height: $line-height;
         z-index: -11;
         transition: all 0.2s;
-        opacity: 1;
       }
 
       &:hover {
         opacity: 1;
       }
     }
-    &__displaying-product{
-      //display:none;
+
+    &__displaying-products {
+      margin-bottom: 4em;
+    }
+
+    &__displaying-product {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
 
-      &.active{
-        //display: block;
+      gap: 2em;
+
+      &.active {
         opacity: 1;
+      }
+
+      &-card {
+        display: flex;
+        flex-direction: column;
+        gap: 1.3em;
+
+        &-img {
+          max-width: calc($max-width * 3);
+          max-height: calc($max-height * 3);
+        }
+
+        &-description {
+          flex-direction: column;
+          margin-left: 2em;
+          display: flex;
+          gap: 1.3em;
+
+          &-title {
+            font-family: Inter, sans-serif;
+            font-size: $font-size;
+            font-weight: bold;
+            line-height: calc($line-height - 0.5em);
+          }
+
+          &-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+
+            &-stars {
+              display: flex;
+              align-items: center;
+              gap: 0.5em;
+
+              &-point {
+                color: $dark-grey-color;
+                opacity: 0.7;
+                font-family: Inter, sans-serif;
+                font-size: calc($font-size - 4px);
+                font-weight: 700;
+                line-height: calc($line-height - 0.5em);
+              }
+            }
+
+            &-reviews {
+              opacity: 0.7;
+              font-family: Inter, sans-serif;
+              font-size: calc($font-size - 0.5em);
+              font-weight: 400;
+              line-height: calc($line-height - 1em);
+            }
+          }
+        }
+
+        &-buy {
+          max-width: calc($max-width * 1.35);
+          font: calc($font-size - 4px) Playfair Display;
+          color: $white-color;
+          background: $dark-grey-color;
+          border-radius: 8px;
+          padding: 0.2em;
+          transition: 0.2s all;
+          cursor: pointer;
+          line-height: $line-height;
+          font-weight: 400;
+          letter-spacing: 0.02em;
+
+          &:hover {
+            background: $white-color;
+            color: $header-color;
+          }
+        }
+      }
+    }
+
+    &__end-of-block {
+      @extend .end-of-block-base;
+
+      &-1, &-2, &-3 {
+        @extend .end-of-block-item;
+      }
+
+      &-2 {
+        @extend .end-of-block-2;
+      }
+
+      &-3 {
+        @extend .end-of-block-3;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5em;
+    margin-bottom: 4em;
+
+    &-line {
+      height: calc($max-height * 1.43);
+      width: 1px;
+      background: #333333;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: c;
+      flex-direction: column;
+      gap: 0.5em;
+
+      &-title {
+        font-family: Inter, sans-serif;
+        font-size: calc($font-size * 2.6666);
+        line-height: calc($line-height * 2.56);
+        letter-spacing: -0.02em;
+        text-align: center;
+      }
+
+      &-description {
+        font-family: Playfair Display, serif;
+        font-size: $font-size;
+        line-height: calc($line-height);
+        text-align: center;
+        max-width: calc($max-width * 2.5);
       }
     }
   }
