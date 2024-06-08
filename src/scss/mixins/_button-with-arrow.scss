@@ -1,0 +1,26 @@
+@use '../variables' as *;
+@use '../skin' as *;
+
+.button {
+  display: flex;
+  align-items: center;
+  font-family: Playfair Display SC, serif;
+  line-height: 1.3em;
+  text-align: left;
+  color: $white-color;
+  background: $header-color;
+  border-radius: 0 1.5em 0 1.5em;
+  transition: 0.4s all;
+  cursor:pointer;
+}
+
+.arrow {
+  width: calc($font-size + 0.4em);
+  height: calc($font-size + 0.4em);
+  margin-left: 0.5em;
+  transition: 0.4s all;
+}
+.button:hover{
+  background: $white-color;
+  color: $header-color;
+}

@@ -1,7 +1,9 @@
 @use './variables' as *;
 @use './skin' as *;
 @use './header' as *;
-@import './mixins/lines';
+@use './mixins/lines' as *;
+@use './mixins/head-text' as *;
+@use '../scss/mixins/button-with-arrow' as *;
 
 .main {
   max-width: 1300px;
@@ -9,24 +11,14 @@
 
   &__production {
     &__title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      @extend .title;
 
       &-text {
-        font-family: Inter, sans-serif;
-        font-size: $font-size;
-        color: $dark-grey-color;
-        opacity: 0.5;
+        @extend .title-text;
       }
 
       &-description {
-        font-family: Playfair Display, serif;
-        font-size: calc($font-size + 1em);
-        color: $dark-grey-color;
-        margin-bottom: 2em;
-        font-weight: 400;
+        @extend .title-description;
       }
     }
 
@@ -186,7 +178,8 @@
     justify-content: center;
     flex-direction: row;
     gap: 5em;
-    margin-bottom: 4em;
+    margin-bottom: 5.5em;
+    margin-top:2em;
 
     &-line {
       height: calc($max-height * 1.43);
@@ -214,6 +207,112 @@
         line-height: calc($line-height);
         text-align: center;
         max-width: calc($max-width * 2.5);
+      }
+    }
+    &__end-of-block {
+      @extend .end-of-block-base;
+
+      &-1, &-2, &-3 {
+        @extend .end-of-block-item;
+      }
+
+      &-2 {
+        @extend .end-of-block-2;
+      }
+
+      &-3 {
+        @extend .end-of-block-3;
+      }
+    }
+  }
+
+  &__about {
+
+    &__title {
+      @extend .title;
+
+      &-text {
+        @extend .title-text;
+      }
+
+      &-description {
+        @extend .title-description;
+      }
+    }
+
+    &__info {
+      display: flex;
+      margin-bottom: 4em;
+      &-container {
+        display: flex;
+        gap:5em;
+        &-information {
+          &-text {
+            max-width: calc($max-width * 5.9);
+            font-size: calc($font-size - 4px);
+            font-family: Inter, sans-serif;
+            line-height: $line-height;
+          }
+
+          &-button {
+            @extend .button;
+            padding: 1em 1.5em;
+            font-size: $font-size;
+
+            &-arrow {
+              @extend .arrow
+            }
+
+            &:hover {
+              .main__about__info-container-information-button-arrow {
+                filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+              }
+            }
+          }
+        }
+
+        &-images {
+          display: flex;
+          &-position {
+            display: flex;
+            gap:1.5em;
+            &-first, &-second {
+              max-width: 248px;
+              max-height: 392px;
+            }
+            &-first{
+              align-self: flex-end;
+            }
+          }
+        }
+      }
+    }
+    &__end-of-block {
+      @extend .end-of-block-base;
+
+      &-1, &-2, &-3 {
+        @extend .end-of-block-item;
+      }
+
+      &-2 {
+        @extend .end-of-block-2;
+      }
+
+      &-3 {
+        @extend .end-of-block-3;
+      }
+    }
+  }
+  &__reviews{
+    &__title {
+      @extend .title;
+
+      &-text {
+        @extend .title-text;
+      }
+
+      &-description {
+        @extend .title-description;
       }
     }
   }

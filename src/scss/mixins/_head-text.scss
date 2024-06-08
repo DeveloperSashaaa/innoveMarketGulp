@@ -1,0 +1,23 @@
+@use '../variables' as *;
+@use '../skin' as *;
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-text {
+  font-family: Inter, sans-serif;
+  font-size: $font-size;
+  color: $dark-grey-color;
+  opacity: 0.5;
+}
+
+.title-description {
+  font-family: Playfair Display, serif;
+  font-size: calc($font-size + 1em);
+  color: $dark-grey-color;
+  margin-bottom: 2em;
+  font-weight: 400;
+}
