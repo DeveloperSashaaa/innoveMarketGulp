@@ -11,7 +11,7 @@
   background: $header-color;
   border-radius: 0 1.5em 0 1.5em;
   transition: 0.4s all;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .arrow {
@@ -20,7 +20,8 @@
   margin-left: 0.5em;
   transition: 0.4s all;
 }
-.button:hover{
+
+.button:hover {
   background: $white-color;
   color: $header-color;
 }

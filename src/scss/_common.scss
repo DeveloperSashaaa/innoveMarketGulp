@@ -3,7 +3,7 @@
 @use './footer' as *;
 @use './header' as *;
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,18 +11,21 @@
 
 body {
   font-family: Inter, sans-serif;
-  background:$white-color;
+  background: $white-color;
 }
+
 a {
   text-decoration: none;
   color: $dark-grey-color;
   transition: 0.4s all;
   line-height: 0;
+
   &:hover {
     text-decoration: underline;
   }
+
   a img {
-     display: inline-block;
+    display: inline-block;
   }
 
 }
@@ -31,7 +34,7 @@ ul {
   list-style: none;
 }
 
-li{
+li {
   list-style: none;
 }
 
@@ -39,6 +42,7 @@ img {
   padding: 0;
   margin: 0;
 }
+
 span {
   padding: 0;
   margin: 0;

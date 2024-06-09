@@ -3,6 +3,7 @@
 @use "footer" as *;
 @use "../scss/mixins/_lines" as *;
 @use '../scss/mixins/button-with-arrow' as *;
+
 .header {
   max-width: 1500px;
   margin: 0 auto;
@@ -12,10 +13,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5em 5em 1.5em 5em;
+
     &__nav-list {
       display: flex;
       gap: 3em;
     }
+
     &__info {
       display: flex;
       gap: 1em;
@@ -66,13 +69,14 @@
     }
   }
 
-  &__collage{
+  &__collage {
     display: flex;
     justify-content: center;
     gap: 1.35em;
     flex-wrap: wrap;
     margin-bottom: 4em;
   }
+
   &__end-of-block {
     @extend .end-of-block-base;
 

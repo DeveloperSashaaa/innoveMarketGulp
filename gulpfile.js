@@ -1,4 +1,4 @@
-const { task, series, parallel, src, dest, watch } = require('gulp')
+const {task, series, src, dest, watch} = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 const replace = require('gulp-replace')
 const dc = require('postcss-discard-comments')
@@ -35,12 +35,12 @@ const SEARCH_IMAGE_REGEXP = /url\(['"]?.*\/images\/(.*?)\.(png|jpg|gif|webp|svg)
 const REPLACEMENT_IMAGE_PATH = "url(../images/$1.$2)";
 
 const PLUGINS = [
-  dc({ discardComments: true }),
+  dc({discardComments: true}),
   autoprefixer({
     overrideBrowserslist: ['last 5 versions', '> 0.1%'],
     cascade: true
   }),
-  mqpacker({ sort: sortCSSmq })
+  mqpacker({sort: sortCSSmq})
 ]
 
 function compileScss() {
@@ -54,14 +54,14 @@ function compileScss() {
 }
 
 function compileScssMin() {
-  const pluginsForMinify = [...PLUGINS, cssnano({ preset: 'default' })]
+  const pluginsForMinify = [...PLUGINS, cssnano({preset: 'default'})]
 
   return src(PATH.scssRootFile)
     .pipe(sass().on('error', sass.logError))
     .pipe(csscomb())
     .pipe(replace(SEARCH_IMAGE_REGEXP, REPLACEMENT_IMAGE_PATH))
     .pipe(postcss(pluginsForMinify))
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({suffix: '.min'}))
     .pipe(dest(PATH.cssFolder))
 }
 
@@ -70,17 +70,17 @@ function compileScssDev() {
 
   pluginsForDevMode.splice(1, 1)
 
-  return src(PATH.scssRootFile, { sourcemaps: true })
+  return src(PATH.scssRootFile, {sourcemaps: true})
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(pluginsForDevMode))
     .pipe(replace(SEARCH_IMAGE_REGEXP, REPLACEMENT_IMAGE_PATH))
-    .pipe(dest(PATH.cssFolder, { sourcemaps: true }))
+    .pipe(dest(PATH.cssFolder, {sourcemaps: true}))
     .pipe(browserSync.stream())
 }
 
 function compilePug() {
   return src(PATH.pugRootFile)
-    .pipe(pug({ pretty: true }))
+    .pipe(pug({pretty: true}))
     .pipe(dest(PATH.htmlFolder))
 }
 
@@ -90,7 +90,7 @@ function comb() {
 
 function serverInit() {
   browserSync({
-    server: { baseDir: './' },
+    server: {baseDir: './'},
     notify: false
   })
 }
@@ -122,7 +122,7 @@ function createStructure() {
     scssAllFiles
   ]
 
-  src('*.*', { read: false })
+  src('*.*', {read: false})
     .pipe(dest(PATH.scssFolder))
     .pipe(dest(PATH.pugFolder))
     .pipe(dest(PATH.cssFolder))
