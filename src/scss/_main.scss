@@ -328,7 +328,7 @@
       display: flex;
       justify-content: center;
       gap: 8em;
-      margin-bottom: 4em;
+      margin-bottom: 10em;
     }
 
     &__comment {
@@ -360,6 +360,36 @@
         font-family: Inter, sans-serif;
         font-size: calc($font-size - 4px);
         line-height: $line-height;
+      }
+    }
+
+    &__end-of-block {
+      @extend .end-of-block-base;
+
+      &-1, &-2, &-3 {
+        @extend .end-of-block-item;
+      }
+
+      &-2 {
+        @extend .end-of-block-2;
+      }
+
+      &-3 {
+        @extend .end-of-block-3;
+      }
+    }
+  }
+
+  &__interesting {
+    &__title {
+      @extend .title;
+
+      &-text {
+        @extend .title-text;
+      }
+
+      &-description {
+        @extend .title-description;
       }
     }
   }
